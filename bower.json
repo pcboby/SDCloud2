@@ -1,0 +1,32 @@
+{
+  "name": "SDCloud2",
+  "description": "New SDCloud Object",
+  "main": "app.js",
+  "authors": [
+    "pcboby <pcboby@126.com>"
+  ],
+  "license": "Commercial",
+  "keywords": [
+    "webix"
+  ],
+  "homepage": "https://github.com/pcboby/SDCloud2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "almond": "^0.3.3",
+    "ckeditor": "^4.7.3",
+    "less": "^2.7.2",
+    "polyglot": "^2.2.2",
+    "requirejs": "^2.3.5",
+    "routie": "^0.3.2",
+    "scheduler": "^4.4.0",
+    "swfobject": "*",
+    "text": "requirejs/text#^2.0.15",
+    "webix": "^4.4.0"
+  }
+}
