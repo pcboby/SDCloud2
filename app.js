@@ -11,9 +11,9 @@ define([
 ], function(core, menu, locale, theme, tracker) {
 
 
-    //webix.codebase = "libs/webix/";
+    // webix.codebase = "libs/webix/codebase";
     //CKEditor requires full path
-    webix.codebase = document.location.href.split("#")[0].replace("index.html", "") + "libs/webix/";
+    webix.codebase = document.location.href.split("#")[0].replace("index.html", "") + "libs/webix/codebase/";
 
     if (!webix.env.touch && webix.ui.scrollSize && webix.CustomScroll)
         webix.CustomScroll.init();
