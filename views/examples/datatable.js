@@ -1,6 +1,7 @@
 define([
-    "models/products"
-], function (productsApi) {
+    "models/products",
+    './components/wSetStaAttribute.js'
+], function (productsApi, wSetStaAttribute) {
     // 新增行默认数据
     var newRow = [];
     // 表头定义
@@ -10,7 +11,7 @@ define([
         width: 50
     }, {
         id: "opt",
-        header: "&nbsp;",
+        header: "操作",
         width: 70,
         template: function (obj) {
             var btns = "<span  style=' cursor:pointer;' class='webix_icon fa-pencil'></span>"
@@ -19,40 +20,40 @@ define([
         }
     }, {
         id: "code",
-        header: "Code",
+        header: "编码",
         sort: "string",
         minWidth: 80,
         fillspace: 1
     }, {
         id: "name",
-        header: "Name",
+        header: "名称",
         sort: "string",
         minWidth: 120,
         fillspace: 2,
         editor: "text"
     }, {
         id: "categoryName",
-        header: "Category",
+        header: "类型",
         sort: "string",
         minWidth: 120,
         fillspace: 2,
         template: "<div class='category#category#'>#categoryName#</div>"
     }, {
         id: "price",
-        header: "Price",
+        header: "单价",
         sort: "int",
         minWidth: 80,
         fillspace: 1,
         format: webix.i18n.priceFormat
     }, {
         id: "quantity",
-        header: "Quantity",
+        header: "数量",
         sort: "int",
         minWidth: 60,
         fillspace: 1
     }, {
         id: "statusName",
-        header: "Status",
+        header: "状态",
         minWidth: 75,
         sort: "string",
         minWidth: 70,
@@ -66,8 +67,28 @@ define([
                 view: 'button',
                 type: 'iconButton',
                 icon: 'plus',
+                width: 120,
+                label: '添加字段',
+                click: function () {
+                    this.$scope.ui(webix.copy(wSetStaAttribute.$ui)).show();
+                    wSetStaAttribute.setValues([{
+                        id: 'n_0',
+                        name: '张三',
+                        sex: 1,
+                        age: 24
+                    }, {
+                        id: 'n_1',
+                        name: '李四',
+                        sex: 1,
+                        age: 27
+                    }])
+                }
+            }, {
+                view: 'button',
+                type: 'iconButton',
+                icon: 'plus',
                 width: 80,
-                label: 'add',
+                label: '新增',
                 click: function () {
                     $$("datatable:datagrid").add(newRow, 0);
                 }
@@ -75,8 +96,8 @@ define([
                 view: "button",
                 type: "iconButton",
                 icon: "file-excel-o",
-                width: 150,
-                label: "Export To Excel",
+                width: 80,
+                label: "导出",
                 click: function () {
                     $$("datatable:datagrid").exportToExcel();
                 }
@@ -85,8 +106,8 @@ define([
                 view: "button",
                 type: "iconButton",
                 icon: "refresh",
-                width: 100,
-                label: "Refresh",
+                width: 80,
+                label: "刷新",
                 click: function () {
                     var grid = $$("datatable:datagrid");
                     grid.clearAll();
@@ -147,7 +168,7 @@ define([
         height: 40,
         cols: [{
                 view: "pager",
-                id: "pagerA",
+                id: "datatable:pagation",
                 template: "{common.first()}{common.prev()}&nbsp; {common.pages()}&nbsp; {common.next()}{common.last()}",
                 autosize: true,
                 height: 35,
@@ -165,15 +186,15 @@ define([
         editable: true,
         editaction: "dblclick",
         columns: columns,
-        pager: "pagerA",
+        pager: "datatable:pagation",
         "export": true,
         data: productsApi.getAll,
         onClick: {
             "fa-trash-o": function (e, id, node) {
                 webix.confirm({
-                    text: "The product will be deleted. <br/> Are you sure?",
-                    ok: "Yes",
-                    cancel: "Cancel",
+                    text: "您确定要删除码 ?",
+                    ok: "确定",
+                    cancel: "取消",
                     callback: function (res) {
                         if (res) {
                             var item = webix.$$("datatable:datagrid").getItem(id);

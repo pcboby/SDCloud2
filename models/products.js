@@ -1,6 +1,6 @@
 define([],function(){
 
-	var number = 150;
+	var number = 71;
 	var data = [];
 	var code = 201;
 	for(var i=0; i<number; i++){
