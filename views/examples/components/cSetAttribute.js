@@ -47,7 +47,7 @@ define([
         },
         {
             id: 'name',
-            header: 'name',
+            header: '姓名',
             fillspace:true
         }
     ];
@@ -144,9 +144,7 @@ define([
     function setValues(datas){
         var dt = $$(componetId + ':defaultTable');
         var st = $$(componetId + ':selectedTable');
-        // datas.forEach(function (d) {
-        //     st.add(d);
-        // })
+
         var dt_data = webix.copy(api.demo.getAll);
 
         dt_data.forEach(function(d){
@@ -161,10 +159,7 @@ define([
         console.log('$$$$$',dt_data);
 
         dt.parse(dt_data);
-        // dt.refresh();
-
         st.parse(datas);
-        // st.refresh();
     }
     return {
         $ui: layout,
