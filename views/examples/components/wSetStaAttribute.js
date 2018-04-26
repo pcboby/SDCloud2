@@ -6,35 +6,33 @@ define([
     var componentId = 'wSetStaAttribute';
 
     var btns = {
-        type:'space',
-        cols: [{},
-        {
-            view: 'button',
-            label: '保存模板'
-        }, {
-            view: 'button',
-            type: 'form',
-            label: '重置'
-        },
-        {
-            view: 'button',
-            type: 'form',
-            label: '取消',
-            click:function(){
-                $$(componentId).close();
-            }
-        },
-        {}
+        type: 'space',
+        cols: [{}, {
+                view: 'button',
+                width: 140,
+                label: '确定'
+            },
+            {
+                view: 'button',
+                type: 'form',
+                width: 140,
+                label: '取消',
+                click: function () {
+                    $$(componentId).close();
+                }
+            },
+            {}
         ]
     }
     var layout = {
         id: componentId,
         view: 'window',
+        css: 'myClass',
         width: 960,
         height: 480,
         modal: true,
         move: true,
-        position:'center',
+        position: 'center',
         head: {
             view: "toolbar",
             margin: -4,
@@ -60,7 +58,7 @@ define([
             ]
         },
         body: {
-            padding:10,
+            padding: 10,
             rows: [{
                     view: "tabbar",
                     multiview: true,
@@ -87,7 +85,7 @@ define([
 
     return {
         $ui: layout,
-        setValues: function (d){
+        setValues: function (d) {
             cSetAttribute.setValues(d);
         }
     }
