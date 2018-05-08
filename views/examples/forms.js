@@ -146,6 +146,25 @@ define(['./mock/api.js'], function (api) {
                             value: 1,
                             options: api.lookup.SAMPLE
                         }, {
+                            view: "segmented",
+                            label: 'segmented',
+                            multiview: true,
+                            value: 1,
+                            options: api.lookup.SAMPLE
+                        }, {
+                            view: "forminput",
+                            name: "screens",
+                            label: 'toggle',
+                            body: {
+                                view: "toggle",
+                                type: "iconButton",
+                                name: "toggle",
+                                offIcon: "pause",
+                                onIcon: "play",
+                                offLabel: "Disabled",
+                                onLabel: "Enabled"
+                            }
+                        } , {
                             view: "counter",
                             label: "counter",
                             step: 10,
@@ -156,13 +175,28 @@ define(['./mock/api.js'], function (api) {
                             template: "Label Top",
                             type: "section"
                         }, {
+                            view: "slider",
+                            label: "slider",
+                            value: "20",
+                            min: 10,
+                            max: 120,
+                            name: "slider"
+                        } ,{
+                            view: "rangeslider",
+                            label: "rangeslider",
+                            value: [0, 50],
+                            name: "rangeslider"
+                        }, {
+                            rows: [{
+                                view: "multitext",
+                                id: "multi",
+                                placeholder: "input here...",
+                                label: "multitext"
+                            }]
+                        }, {
                             view: "forminput",
                             name: "screens",
                             label: 'dbllist',
-                            list: {
-                                height: 200,
-                                scroll: false
-                            },
                             body: {
                                 view: "dbllist",
                                 list: {
@@ -174,7 +208,12 @@ define(['./mock/api.js'], function (api) {
                                 data: api.lookup.SAMPLE,
                                 value: '1'
                             }
-                        } ,
+                        }, {
+                            view: "textarea",
+                            label: "textarea",
+                            height: 100,
+                            placeholder: "type here"
+                        },
                         {
                             margin: 10,
                             paddingX: 2,
