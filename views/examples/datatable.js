@@ -23,6 +23,7 @@ define([
         header: "编码",
         sort: "string",
         minWidth: 80,
+        editor:'text',
         fillspace: 1
     }, {
         id: "name",
@@ -51,6 +52,10 @@ define([
         sort: "int",
         minWidth: 60,
         fillspace: 1
+    }, {
+        id: 'updatetime',
+        header: '上传时间',
+            editor: 'myeditor'
     }, {
         id: "statusName",
         header: "状态",
@@ -170,9 +175,10 @@ define([
                 view: "pager",
                 id: "datatable:pagation",
                 template: "{common.first()}{common.prev()}&nbsp; {common.pages()}&nbsp; {common.next()}{common.last()}",
-                autosize: true,
+                // autosize: true,
                 height: 35,
-                group: 5
+                group: 5,
+                size: 10
             }
 
         ]
@@ -184,7 +190,8 @@ define([
         view: "datatable",
         // select: true,
         editable: true,
-        editaction: "dblclick",
+        // editaction: "dblclick",
+        editaction: 'click',
         columns: columns,
         pager: "datatable:pagation",
         "export": true,

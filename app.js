@@ -8,11 +8,11 @@ define([
     "helpers/locale",
     "helpers/theme",
     "libs/rollbar",
-    './helpers/config'
-], function(core, menu, locale, theme, tracker, skin) {
+    'helpers/config'
+], function(core, menu, locale, theme, tracker, config) {
 
 
-    skin.init();
+    config.init();
 
     // webix.codebase = "libs/webix/codebase";
     //CKEditor requires full path

@@ -32,6 +32,10 @@ define([], function () {
         age: 41
     }];
 
+    var TF = [{ id: '1', value: 'yes' }, { id: '0', value: 'no' }];
+    var sex = [{ id: '0', value: '女' }, { id: '1', value: '男' }, { id: '2', value: '未知' }];
+    var SAMPLE = [{ id: '1', value: 'A' }, { id: '2', value: 'B' }, { id: '3', value: 'C' },{ id: '4', value: 'D' }]
+
     function _resource(url, params, options) {
         var opts = webix.extend({}, {
             methods: 'get',
@@ -46,6 +50,11 @@ define([], function () {
         resource: _resource,
         demo: {
             getAll: _alldata
+        },
+        lookup:{
+            SAMPLE:SAMPLE,
+            TF:TF,
+            sex:sex,
         }
     };
 

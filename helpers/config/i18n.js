@@ -79,6 +79,10 @@ define([], function () {
             underline: "强调",
             bold: "粗體",
             italic: "斜体"
+        }, combo: {
+            select: "选择",
+            selectAll: "全选",
+            unselectAll: "清空"
         }
     }
 

@@ -19,7 +19,7 @@ define(function () {
 				on: {
 					onBeforeSelect: function (id) {
 						if (this.getItem(id).$count) {
-							debugger;
+							// debugger;
 							return false;
 						}
 
@@ -42,7 +42,12 @@ define(function () {
 							value: 'datatable',
 							icon: 'table',
 							$css: 'dashboard',
-							details: 'webix examples of datatable'
+							details: 'webix examples of datatable1111'
+						}, {
+							id: 'examples.forms',
+							value: 'forms',
+							icon: 'table',
+							details: 'webix example of forms components'
 						}]
 					},
 					{

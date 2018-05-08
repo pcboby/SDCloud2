@@ -19,6 +19,7 @@ define([],function(){
 			statusName:(status>1?"Published":(status==1?"Not published":"Deleted")),
 			status: (status>1?"1":(status==1?"2":"0")),
 			quantity:quantity,
+			updatetime:'2018-05-05',
 			in_stock: (inStore>1)
 		});
 		code++;
