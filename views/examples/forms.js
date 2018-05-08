@@ -153,7 +153,7 @@ define(['./mock/api.js'], function (api) {
                             options: api.lookup.SAMPLE
                         }, {
                             view: "forminput",
-                            name: "screens",
+                            name: "toggle",
                             label: 'toggle',
                             body: {
                                 view: "toggle",
